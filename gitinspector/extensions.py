@@ -19,23 +19,28 @@
 
 from __future__ import unicode_literals
 
-DEFAULT_EXTENSIONS = ["java", "c", "cc", "cpp", "h", "hh", "hpp", "py", "glsl", "rb", "js", "sql"]
+DEFAULT_EXTENSIONS = ["ada", "adb", "ads", "java", "c", "cc", "cpp", "cs", "json", "h", "hh", "html", "hpp", "hs",
+                      "php", "pl", "py", "po", "pot", "rb", "scala", "tf", "js", "sh", "sql", "xml", "yml"]
 
 __extensions__ = DEFAULT_EXTENSIONS
 __located_extensions__ = set()
 
+
 def get():
-	return __extensions__
+    return __extensions__
+
 
 def define(string):
-	global __extensions__
-	__extensions__ = string.split(",")
+    global __extensions__
+    __extensions__ = string.split(",")
+
 
 def add_located(string):
-	if len(string) == 0:
-		__located_extensions__.add("*")
-	else:
-		__located_extensions__.add(string)
+    if len(string) == 0:
+        __located_extensions__.add("*")
+    else:
+        __located_extensions__.add(string)
+
 
 def get_located():
-	return __located_extensions__
+    return __located_extensions__
